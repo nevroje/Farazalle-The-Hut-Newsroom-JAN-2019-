@@ -4,4 +4,11 @@ class Article < ApplicationRecord
 		validates :status, presence: true
 		validates :category, presence: true
 		belongs_to :category
+		validates :approved, inclusion: { in: [true, false] }
+		validates :approved, exclusion: { in: [nil] }
+
+
+		def approved
+			where(approved: true)
+		end
 end

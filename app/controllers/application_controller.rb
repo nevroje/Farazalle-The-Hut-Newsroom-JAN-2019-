@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
 		if current_user.editor?
-				editor_articles_path
+				staff_content_editor_articles_path
 		elsif current_user.journalist?
-				journalist_articles_path
+				staff_content_articles_path
 		else
 				root_path
 		end

@@ -1,6 +1,6 @@
 class Editor::ArticlesController < ApplicationController
-	before_action :check_editor
-	before_action :authenticate_user!
+	before_action :check_staff_auth
+	
 
 	def index
 			@articles = Article.all
