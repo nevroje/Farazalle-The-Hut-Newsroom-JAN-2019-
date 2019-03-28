@@ -14,9 +14,16 @@ Rails.application.routes.draw do
 	resources :articles, only: [:index, :show, :create, :new]
 	resources :categories, only: [:show]
 
-		namespace :staff_content do
-			namespace :editor do
+	namespace :staff_content do
+		namespace :editor do
+			resources :articles
+		end
+		namespace :journalist do
 			resources :articles
 		end
 	end
 end
+
+
+
+
