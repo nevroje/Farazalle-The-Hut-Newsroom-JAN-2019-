@@ -1,6 +1,5 @@
 class Editor::ArticlesController < ApplicationController
 	before_action :check_staff_auth
-	
 
 	def index
 			@articles = Article.all
@@ -14,9 +13,9 @@ class Editor::ArticlesController < ApplicationController
 			@article = Article.find(params[:id])
 			if @article.approved == false
 					@article.update_attributes(approved: true)
-					redirect_to editor_articles_path, notice: 'Article was successfully published.'
+					redirect_to staff_content_editor_article_path, notice: 'Article was successfully published.'
 			else
-					redirect_to editor_articles_path, notice: 'Article has already been published.'
+					redirect_to staff_content_editor_article_path, notice: 'Article has already been published.'
 			 end
 	end
 

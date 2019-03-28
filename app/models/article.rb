@@ -6,9 +6,4 @@ class Article < ApplicationRecord
 		belongs_to :category
 		validates :approved, inclusion: { in: [true, false] }
 		validates :approved, exclusion: { in: [nil] }
-
-
-		def approved
-			where(approved: true)
-		end
 end
