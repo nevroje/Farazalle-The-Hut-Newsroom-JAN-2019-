@@ -2,7 +2,7 @@
 	%p
 		%h1 Welcome to the staff page
 		.form_container
-			= form_with model: @article, url: staff_content_articles_path, class: "w-1/2 text-center", method: "post" do |f|
+			= form_with model: @article, url: staff_content_journalist_articles_path, class: "w-1/2 text-center", method: "post" do |f|
 				%label.control-label{for: "title"} Title
 				%input.form_container{name: "title", class: "w-1/2"}
 				%label.control-label{for: "status"} Status
@@ -22,4 +22,4 @@
 						%option Tech
 						%option Politics
 				%button.btn-group-wrap.button{style:'text-align:center;', type: "submit"} Save Article
-				
+

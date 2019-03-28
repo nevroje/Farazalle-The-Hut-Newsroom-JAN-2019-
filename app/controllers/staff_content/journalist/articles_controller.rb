@@ -1,4 +1,4 @@
-class StaffContent::ArticlesController < ApplicationController
+class StaffContent::Journalist::ArticlesController < ApplicationController
 	before_action :check_staff_auth
 
 	def index
@@ -27,9 +27,11 @@ class StaffContent::ArticlesController < ApplicationController
 	private
 
 	def check_staff_auth
-		if user_signed_in? && (current_user.role == "journalist" || current_user.role == "editor")
-			staff_content_articles_path
-		else
+		if user_signed_in? && (current_user.role == "journalist")
+			staff_content_journalist_articles_path
+			elsif user_signed_in? && (current_user.role == "editor")
+				staff_content_editor_articles_path
+			else
 			redirect_to root_path
 		end
 	end

@@ -8,6 +8,7 @@
 		.subscription
 			-if(user_signed_in? && current_user.role == "journalist")
 				= link_to 'Employee', staff_content_journalist_articles_path, class: "subscribe_button"
+				= link_to t('logout'), destroy_user_session_path, method: "delete", class: "subscribe_button"
 			-elsif(user_signed_in? && current_user.role == "editor")
 				= link_to 'Employee', staff_content_editor_articles_path, class: "subscribe_button"
 				= link_to t('logout'), destroy_user_session_path, method: "delete", class: "subscribe_button"
