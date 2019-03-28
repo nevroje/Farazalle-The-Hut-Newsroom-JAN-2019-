@@ -1,0 +1,8 @@
+- @articles.each do |article|
+  = link_to(editor_article_path(article)) do
+    .max-w-sm.rounded
+      .px-6.py-4
+        .font-bold.text-xl.mb-2
+          = article.title
+
+= link_to ('Home'), root_path
