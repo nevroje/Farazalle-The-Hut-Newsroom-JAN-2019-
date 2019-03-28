@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :trackable
 
-  protected
+	protected
 
   enum role: { registered: 0, subscriber: 1, journalist: 2, editor: 3 }
 

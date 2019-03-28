@@ -41,6 +41,17 @@ Given("I am logged in as {string}") do |email|
 	login_as(user, scope: :user)
 end
 
+Given("I am in {string}, {string}") do |city, country|
+	Geocoder::Lookup::Test.set_default_stub(
+		[
+			{
+				city: city,
+				country_code: country
+			}
+		]
+	)
+end
+
 Then('stop') do
 	binding.pry
 end

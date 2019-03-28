@@ -34,7 +34,6 @@ class RegistrationsController < Devise::RegistrationsController
   private
 
   def build_new_resource
-    # binding.pry
     random_password = [*('a'..'z'), *('0'..'9')].sample(6).join
     build_resource(sign_up_params.merge(password: random_password,
                                         temp_password: random_password))

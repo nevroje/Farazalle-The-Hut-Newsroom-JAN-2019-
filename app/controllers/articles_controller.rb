@@ -1,7 +1,13 @@
 class ArticlesController < ApplicationController
 	def index
+		if request.location
+			city = request.location.city
+			@articles_by_category = Article.where(city: [city, nil]).group_by(&:category)
+		else
+			@articles_by_category = Article.where(city: nil).group_by(&:category)
+		end
+
 		@categories = Category.all
-		@articles = Article.all
 	end
 
 	def create

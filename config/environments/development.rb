@@ -1,3 +1,16 @@
+class SpoofIp
+	def initialize(app, ip)
+		@app = app
+		@ip = ip
+	end
+
+	def call(env)
+		env['REMOTE_ADDR'] = env['action_dispatch.remote_ip'] = @ip
+		@status, @headers, @response = @app.call(env)
+		[@status, @headers, @response]
+	end
+end
+
 Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   config.cache_classes = false
@@ -41,4 +54,6 @@ Rails.application.configure do
 
 	config.stripe.secret_key = Rails.application.credentials.stripe_secret_key
 	config.stripe.publishable_key = Rails.application.credentials.stripe_publishable_key
+
+	config.middleware.use(SpoofIp, '82.196.108.228')
 end

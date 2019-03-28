@@ -15,6 +15,7 @@ gem 'tailwindcss', '~> 0.2.0'
 gem 'devise'
 gem 'haml'
 gem 'stripe-rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'factory_bot_rails'

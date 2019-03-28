@@ -8,5 +8,6 @@ FactoryBot.define do
     image { 'https://cdn.pixabay.com/photo/2016/11/29/04/19/beach-1867285__340.jpg' }
 		category
 		approved {'true'}
+		city { nil }
   end
 end

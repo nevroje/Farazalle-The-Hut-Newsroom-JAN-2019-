@@ -1,12 +1,12 @@
 %ul.flex.justify-center
 	-@categories.each do |category|
-		%li.list-reset.p-4.text-lg=link_to category.name.capitalize, category_path(category)
+		%li.list-reset.p-4.text-lg=link_to t(category.name.capitalize), category_path(category)
 
-- @categories.each do |category|
+- @articles_by_category.keys.each do |category|
 	%div{id: dom_id(category)}
 		%p.text-center= t(category.name.capitalize)
 		%div.flex.flex-wrap.mb-4.justify-center
-			-category.articles.each do |article|
+			-@articles_by_category[category].each do |article|
 				.article.text-center{id: "#{dom_id(article)}"}
 					- if article.status == "free"
 						= link_to article.title, article_path(article), class: "text-lg"

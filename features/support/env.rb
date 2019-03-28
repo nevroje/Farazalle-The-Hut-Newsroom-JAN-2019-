@@ -41,6 +41,15 @@ Capybara.javascript_driver = :chrome
 Warden.test_mode!
 World Warden::Test::Helpers
 
+Before "@geolocation" do
+ 	Geocoder.configure(lookup: :test, ip_lookup: :test)
+end
+
+After "@geolocation" do
+	#freegeoip.net provides a public HTTP API for software developers to search the geolocation of IP addresses.
+ 	Geocoder.configure(lookup: :freegeoip, ip_lookup: :freegeoip)
+end
+
 After do
   Warden.test_reset!
   StripeMock.stop
