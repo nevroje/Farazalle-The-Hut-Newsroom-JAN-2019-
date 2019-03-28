@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
 	namespace :staff_content do
     resources :articles
-  end
+	end
+
+	namespace :editor do
+		resources :articles
+	end
 end
