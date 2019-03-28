@@ -25,3 +25,6 @@ Feature: Editor can publish articles
 		And I visit the "landing" page
 		When I click on "Employee"
 		Then I should see "Unpublished articles"
+		And I click on "The Hub News is the site of the moment"
+		And I should see "Publish"
+
