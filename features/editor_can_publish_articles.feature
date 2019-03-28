@@ -24,5 +24,4 @@ Feature: Editor can publish articles
 	Scenario: Editor can publish articles
 		And I visit the "landing" page
 		When I click on "Employee"
-		Then I should see "Welcome to the staff page"
-		
+		Then I should see "Unpublished articles"

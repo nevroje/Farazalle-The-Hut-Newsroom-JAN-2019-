@@ -6,8 +6,10 @@
 			= link_to_unless_current "English", locale: "en", class: "nav_links"
 			= link_to_unless_current "Svenska", locale: "sv", class: "nav_links"
 		.subscription
-			-if(user_signed_in? && (current_user.role == "journalist" || current_user.role == "editor"))
-				-# = link_to 'Employee', staff_content_articles_path, class: "subscribe_button"
+			-if(user_signed_in? && current_user.role == "journalist")
+				= link_to 'Employee', staff_content_journalist_articles_path, class: "subscribe_button"
+			-elsif(user_signed_in? && current_user.role == "editor")
+				= link_to 'Employee', staff_content_editor_articles_path, class: "subscribe_button"
 				= link_to t('logout'), destroy_user_session_path, method: "delete", class: "subscribe_button"
 			-elsif(!user_signed_in?)
 				= link_to t('login'), new_user_session_path, class: "subscribe_button"
