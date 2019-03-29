@@ -5,5 +5,5 @@
 		- @articles.each do |article|
 			%tr
 			%td= article.title
-			%td= link_to t('Show'), staff_content_editor_article_path(article)
+			%td= link_to t('Edit'), staff_content_editor_article_path(article)
 			%td= link_to t('Publish'), articles_path(article)

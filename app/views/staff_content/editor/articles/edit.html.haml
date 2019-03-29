@@ -1,0 +1,6 @@
+%h1 jberg
+- if @article.approved == false
+	= link_to t("Publish"), staff_content_editor_article_path(@article, approved: true), method: :patch
+- else
+	- false
+	= link_to "Back", editor_articles_path

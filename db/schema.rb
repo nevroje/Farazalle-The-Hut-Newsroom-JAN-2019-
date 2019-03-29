@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2019_03_28_091428) do
     t.string "image"
     t.bigint "category_id"
     t.string "status"
-    t.boolean "approved", default: false
     t.string "city"
+    t.boolean "approved", default: false
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 

@@ -61,3 +61,8 @@ Then("I should see my temporary password in the email body") do
 	password = @user.temp_password
 	expect(current_email.default_part_body.to_s).to include(password)
 end
+
+Then("I click on {string} on {string}") do |element, title|
+	@article = Article.find_by_title(title)
+	find("#article_#{@article.id}").click_on element
+end

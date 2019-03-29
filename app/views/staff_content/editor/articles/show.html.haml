@@ -1,1 +1,12 @@
 %h1 Edit
+%p
+  %strong Title:
+  = @article.title
+%p
+  %strong Text:
+  = @article.content
+= link_to "Back", staff_content_editor_article_path
+- if @article.approved == false
+  = link_to "Publish", staff_content_editor_article_path(@article, approved: true), method: :patch
+- else
+  - false
