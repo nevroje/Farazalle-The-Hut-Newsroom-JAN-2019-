@@ -1,9 +1,9 @@
-%h1 Listing articles
+%h1 Unpublished articles
 %table
-  %tr
-    %th Title
-    %th
-  - @articles.each do |article|
-    %tr
-      %td= article.title
-      %td= link_to 'Publish', articles_path(article)
+	%tr
+		%th Title
+		- @articles.each do |article|
+			%tr
+			%td= article.title
+			%td= link_to t('Show'), staff_content_editor_article_path(article)
+			%td= link_to t('Publish'), articles_path(article)
